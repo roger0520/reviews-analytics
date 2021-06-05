@@ -7,10 +7,13 @@ with open('reviews.txt', 'r') as f:
     for line in f:
         data.append(line)
         count +=1
-        if count % 10000 == 0:   # % 求餘數
+        if count % 100000 == 0:   # % 求餘數
             print(len(data))
-print('留言總筆數= ',len(data))
-#print(data)
-#print(data[0])
-#print('----------------------')
-#print(data[1])
+print('檔案讀取結束，留言總筆數= ', len(data))
+
+sum = 0
+for x in range(1000000):
+    sum = sum + len(data[x])
+averge = sum / 1000000
+print('留言平均長度= ',averge)
+
