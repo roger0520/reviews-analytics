@@ -1,3 +1,5 @@
+
+
 data = []
 count = 0
 with open('reviews.txt', 'r') as f:
@@ -10,11 +12,11 @@ print('檔案讀取結束，留言總筆數 =', len(data))
 #print(data[0])
 
 # 文字計數
-sum = 0
-for x in range(1000000):
-  sum = sum + len(data[x])
-averge = sum / 1000000
-print('留言平均長度= ',averge)
+# sum = 0
+# for x in range(1000000):
+#   sum = sum + len(data[x])
+# averge = sum / 1000000
+# print('留言平均長度= ',averge)
 
 sum = 0
 for d in data:
@@ -28,7 +30,11 @@ for d in data:
 print('一共有', len(new), '筆留言長度小於100')
 print(new[0])
 
-
+good = []
+for d in data:
+    if 'good' in d:
+        good.append(d)
+print('一共有', len(good), '筆留言提到good這個字')
 
 wc = {} #word_count  {}字典
 for d in data:  # d是字串  data是清單
