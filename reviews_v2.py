@@ -1,3 +1,4 @@
+import time
 
 
 data = []
@@ -11,7 +12,7 @@ with open('reviews.txt', 'r') as f:
 print('檔案讀取結束，留言總筆數 =', len(data))
 #print(data[0])
 
-# 文字計數
+
 # sum = 0
 # for x in range(1000000):
 #   sum = sum + len(data[x])
@@ -36,6 +37,8 @@ for d in data:
         good.append(d)
 print('一共有', len(good), '筆留言提到good這個字')
 
+# 文字計數
+start_time = time.time()
 wc = {} #word_count  {}字典
 for d in data:  # d是字串  data是清單
     words = d.split()  #words 是清單  split預設就是' '空白，如果沒有打''他會把連續空白處理掉
@@ -46,8 +49,10 @@ for d in data:  # d是字串  data是清單
             wc[word] += 1 #如果有出現就將value加1
 
 for word in wc:  #這種loop是把每一個key給叫出來
-    if wc[word] > 1000:
+    if wc[word] > 1000000:
         print(word, wc[word])
+end_time = time.time()
+print('花了',end_time - start_time, 'seconds')
 
 print('字典的長度:', len(wc))
 
